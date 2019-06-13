@@ -5,7 +5,6 @@
  */
 package atm;
 
-import model.SavingAccountState;
 import model.State;
 import java.io.IOException;
 import java.net.URL;
@@ -15,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import Enum.AccountTypes;
 import model.AccountState;
-
 
 /**
  * FXML Controller class
@@ -27,32 +25,39 @@ public class AccountOptionController implements Initializable {
     /**
      * Initializes the controller class.
      */
-     @FXML
     private Label lblmessage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         lblmessage.setText("  Welcome to AIT \n  ATM System");
-    }   
-    
-    public void clickSavingButton() throws IOException{
-        State state=new State( AccountTypes.SAVING,new AccountState());
+
+    }
+
+    @FXML
+    public void clickSavingButton() throws IOException {
+        State state = new State(AccountTypes.SAVING, new AccountState());
         Main.state = state;
         Main.setRoot("AtmOperation");
     }
-    public void clickChequeButton() throws IOException{
-        State state=new State(AccountTypes.CHEQUE,new AccountState());
+
+    @FXML
+    public void clickChequeButton() throws IOException {
+        State state = new State(AccountTypes.CHEQUE, new AccountState());
         Main.state = state;
         Main.setRoot("AtmOperation");
     }
-    public void clickNetSavingButton() throws IOException{
-        State state=new State(AccountTypes.NETSAVING,new AccountState());
+
+    @FXML
+    public void clickNetSavingButton() throws IOException {
+        State state = new State(AccountTypes.NETSAVING, new AccountState());
         Main.state = state;
         Main.setRoot("AtmOperation");
     }
-    public void clickFixedButton() throws IOException{
-        State state=new State(AccountTypes.FIXED,new AccountState());
+
+    @FXML
+    public void clickFixedButton() throws IOException {
+        State state = new State(AccountTypes.FIXED, new AccountState());
         Main.state = state;
         Main.setRoot("AtmOperation");
     }
-    
-     }
+
+}

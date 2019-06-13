@@ -12,7 +12,7 @@ import Interface.ICustomerFactory;
  *
  * @author OEM
  */
-public class ATM implements  IOperation {
+public class ATM implements IOperation {
 
     private int id;
     private String location;
@@ -22,11 +22,9 @@ public class ATM implements  IOperation {
 
     public ATM(ICustomerFactory customerFactory) {
         this.customerFactory = customerFactory;
-        
-       
+
     }
 
-  
     public int getAtmId() {
         return id;
     }
@@ -43,7 +41,6 @@ public class ATM implements  IOperation {
         this.location = location;
     }
 
- 
     @Override
     public void showMenu() {
         System.out.println("\t Saving\n ");
@@ -52,12 +49,10 @@ public class ATM implements  IOperation {
         System.out.println("\t Fixed\n ");
 
     }
-   
 
     @Override
     public void getBalance() {
-        System.out.println("Initilezed prefer account to get balance.\n"
-                + " reference variable of parent class cannot access method of child class");
+
     }
 
     @Override
@@ -66,7 +61,6 @@ public class ATM implements  IOperation {
         if (customer != null) {
             if (customer.getPassword().equals(password)) {
                 this.customer = customer;
-                System.out.println("you are logged in successfully");
                 return true;
             }
         }
@@ -80,7 +74,6 @@ public class ATM implements  IOperation {
         if (customer != null) {
             if (customer.getPin() == pin) {
                 this.customer = customer;
-                System.out.println("you are logged in successfully");
                 return true;
             }
         }
@@ -94,7 +87,7 @@ public class ATM implements  IOperation {
 
     @Override
     public int getCustomerDetails() {
-     return  customer.getClientId();
+        return customer.getClientId();
     }
 
 }

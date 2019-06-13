@@ -42,15 +42,14 @@ public class MockCustomerFactory implements ICustomerFactory {
         customer.setPassword("12345");
         customer.setPin(5544);
         customers.add(customer);
-        customer.setAccount(new Saving());
-        return customer;
+               return customer;
     }
 
    
     
     private int newId() {
         Random random = new Random();
-        int id = random.nextInt(2)+100;
+        int id = random.nextInt(1)+100;
         boolean matched = false;
 
         for (Customer customer : customers) {

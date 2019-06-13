@@ -10,11 +10,13 @@ import model.SavingAccountState;
 import model.State;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import model.Account;
 import model.AccountState;
 import model.NetSaving;
@@ -51,6 +53,12 @@ public class AtmOperationController implements Initializable {
     private Label lblMessage;
 
     private Account account;
+    @FXML
+    private AnchorPane lblmessage;
+    @FXML
+    private Button btnGoBack;
+    @FXML
+    private Button btnExit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -93,6 +101,7 @@ public class AtmOperationController implements Initializable {
         lblAccountBalance.setText(Double.toString(amount));
     }
 
+    @FXML
     public void withdraw() {
         try {
             String _amount = txtAmount.getText();
@@ -113,8 +122,10 @@ public class AtmOperationController implements Initializable {
         }
     }
 
+    @FXML
     public void deposit() {
         try {
+           
             String _amount = txtAmount.getText();
             if (!checkTextField()) {
                 double amount = Double.parseDouble(_amount);
@@ -133,6 +144,7 @@ public class AtmOperationController implements Initializable {
         }
     }
 
+    @FXML
     public void setLimit() {
 
         Saving saving = new Saving();
@@ -152,21 +164,40 @@ public class AtmOperationController implements Initializable {
         }
     }
 
+    @FXML
     public void CheckLimit() {
         NetSaving netSaving = new NetSaving();
         lblMessage.setText("Daily limit for this account is " + Double.toString(netSaving.getDailyWithdrawalLimit()));
     }
 
+    @FXML
     public void checkbalance() {
-        lblMessage.setText("Your total Balance is: ");
-        txtAmount.setText(Double.toString(account.getAccountBalance()));
+        lblMessage.setText("Your total Balance is: " +account.getAccountBalance());
+       
     }
 
     public boolean checkTextField() {
         return txtAmount.getText().trim().isEmpty();
     }
 
+    @FXML
     public void goBack() throws IOException {
         Main.setRoot("AccountOption");
     }
+    
+    @FXML
+     public void processButtonText(ActionEvent event){         
+           String value=((Button)event.getSource()).getText();
+           txtAmount.setText(txtAmount.getText()+value);
+       }
+     
+    @FXML
+     public void clearButton(ActionEvent event) {
+           txtAmount.clear();
+    }
+    @FXML
+     public void logout() throws IOException
+     {
+           Main.setRoot("Login");
+     }
 }
