@@ -1,6 +1,6 @@
 package atm;
 
-import java.awt.event.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void processButtonText(ActionEvent event) {
-      //  focusedfield = getFocusedField();
+     
         String value = ((Button) event.getSource()).getText();
         focusedfield.setText(focusedfield.getText() + value);
 
@@ -75,14 +75,7 @@ public class LoginController implements Initializable {
         stage.close();
     }
 
-    private TextField getFocusedField() {
-        if (txtCustomerId.isFocused()) {
-
-            return txtCustomerId;
-        } else {
-            return txtPin;
-        }
-    }
+   
 
     @FXML
     private void onPinTextClicked(javafx.scene.input.MouseEvent event) {
