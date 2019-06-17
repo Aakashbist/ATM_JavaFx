@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.ATM;
 import model.MockCustomerFactory;
@@ -78,12 +79,12 @@ public class LoginController implements Initializable {
    
 
     @FXML
-    private void onPinTextClicked(javafx.scene.input.MouseEvent event) {
+    private void onPinTextClicked(MouseEvent event) {
          focusedfield=txtPin;
     }
 
     @FXML
-    private void onClientClick(javafx.scene.input.MouseEvent event) {
+    private void onClientClick(MouseEvent event) {
          focusedfield=txtCustomerId;
     }
 }
